@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import Picture from "./components/Picture.js";
+import Input from "./components/Input.js";
+import Comments from "./components/Comments.js";
+import OneComment from "./components/OneComment.js"
 
 function App() {
+  const [userComments, setUserComments] = useState([
+    "OMG so cute!",
+    "Your dog is adorable",
+    "dogs > cats"
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Picture></Picture>
+      <Input userComments = {userComments} setUserComments={setUserComments}></Input>
+      {/* <Comments userComments={userComments}></Comments> */}
+      {userComments.map((comment,index)=>{
+        return <OneComment key={index} comment={comment}></OneComment>
+      })}
     </div>
   );
 }
