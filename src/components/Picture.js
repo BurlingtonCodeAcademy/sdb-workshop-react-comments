@@ -1,3 +1,4 @@
+// post content, includes image and caption
 function Picture(props) {
   return (
     <figure>

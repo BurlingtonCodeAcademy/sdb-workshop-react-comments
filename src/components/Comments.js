@@ -1,10 +1,11 @@
+// comment section
 function Comments(props) {
-  console.log("userComments", props.userComments);
   return (
     <div id="comment-container">
       <h3>Comments:</h3>
-      {props.userComments.map((comment, index)=>{
-          return <p key={index}>{comment}</p>
+      {/* maps over userComments array and returns a <p> for each comment in the array */}
+      {props.userComments.map((comment, index) => {
+        return <p key={index}>{comment}</p>;
       })}
     </div>
   );
